@@ -1,0 +1,74 @@
+<!-- %h1 Listing profiles
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Last name
+      %th Bullyp
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @profiles.each do |profile|
+      %tr
+        %td= profile.name
+        %td= profile.last_name
+        %td= profile.bullyp
+        %td= profile.user
+        %td= link_to 'Show', profile
+        %td= link_to 'Edit', edit_profile_path(profile)
+        %td= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Profile', new_profile_path
+= link_to 'Pagina Administrador', wellcome_index_path -->
+
+
+
+<%= csrf_meta_tags %>
+<h1>User Profiles</h1>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-2" style="background-color:red;">ID</div>
+    <div class="col-xs-1" style="background-color:lime;">Name</div>
+    <div class="col-xs-1" style="background-color:gold;">Last_Name</div>
+    <div class="col-xs-5" style="background-color:lime;">Bully_Phrase</div>
+    <div class="col-xs-1" style="background-color:gold;">User_id</div>
+    <div class="col-xs-1" style="background-color:gold;">Avatar</div>
+    <div class="col-xs-1" style="background-color:gold;">Opcion</div>
+</div>
+    <% @profiles.order(:id).each do |profile| %>
+    <div class="row">
+      <div class="col-xs-2" style="background-color:lavender;"><%= profile.id %></div>
+      <div class="col-xs-1" style="background-color:lavender;"><%= profile.name %></div>
+      <div class="col-xs-1" style="background-color:lavender;"><%= profile.last_name %></div>
+      <div class="col-xs-5" style="background-color:lavender;"><%= profile.bullyp %></div>
+      <div class="col-xs-1" style="background-color:lavender;"><%= profile.user_id %></div>
+      <div class="col-xs-1"><div class="round-image-50"><%= image_tag(profile.avatar.url(:thumb)) %></div></div>
+      <div class="col-xs-1" style="background-color:lavender;"><div class="dropdown">
+   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <span style="color:darkorange">Elija Opcion </span>
+   </button>
+   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+   <a class="dropdown-item" href="/profiles/<%= profile.id %>",method: :get><span style="color:green">Show</span></a>
+   <a class="dropdown-item" href="/profiles/<%= profile.id %>/edit", method: :get><span style="color:blue">Edit</span></a>
+   <a class="dropdown-item" href="/profiles/<%= profile.id %>", method: :delete, data: { confirm: 'Are you sure?' }><span style="color:red">Destroy</span></a>
+   </div>
+   </div></div>
+  </div>
+    <% end %>
+  </div>
+
+  <br><br>
+  <div align=center><%= button_to '  New User Profile  ', new_profile_path, style: "background: coral", method: :get %></div><br>
+  <div align=center><%= button_to '  Home Administrador  ', wellcome_index_path, method: :get, style: "background: steelblue" %></div>

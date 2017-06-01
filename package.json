@@ -1,5 +1,13 @@
 {
   "name": "game",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap-sass": "^3.3.7"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rcrgithub/game.git",
+  "author": "Ricardo Capuz <rcr2012@gmail.com>",
+  "license": "MIT"
 }

@@ -9,6 +9,38 @@
   </head>
 
   <body>
+    <% unless flash.empty? %>
+         <script type="text/javascript">
+              <% flash.each do |f| %>
+    	      <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+    	     	 toastr['<%= type %>']('<%= f[1] %>');
+    	   <% end %>
+         </script>
+    <% end %>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
+
+  <ul class="nav">
+    <!-- <li class="active"><a href="/profiles">Profiles</a></li> -->
+  </ul>
+
+  <!-- <p class="navbar-text pull-right">
+  <% if user_signed_in? %>
+    <div align=center, style="color:gold;"><h2>Logged in as <strong><%= current_user.email %></strong></h2></div><br><br>
+    <div align=center, style="color:red;"><h2><%= button_to 'Complete el profile', new_profile_path, :class => 'navbar-link', method: :get %> <br><br>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h2></div>
+  <% else %>
+    <%= link_to "Registration", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+  <% end %>
+</p> -->
+
+
+
 </html>

@@ -1,0 +1,77 @@
+<!-- = form_for @profile do |f|
+  - if @profile.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@profile.errors.count, "error")} prohibited this profile from being saved:"
+      %ul
+        - @profile.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :bullyp
+    = f.text_field :bullyp
+  .field
+    = f.label :user_id
+    = f.text_field :user_id
+  .field
+    = f.label :avatar
+
+    = f.file_field :avatar
+
+
+  .actions
+    = f.submit 'Save' -->
+
+
+    <%= form_for @profile do |f| %>
+
+    <% if @profile.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@profile.errors.count, "error") %> prohibited
+          this profile from being saved:
+        </h2>
+        <ul>
+          <% @profile.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      </head>
+      <br><br>
+      <div class="container-fluid">
+        <div class="row"><br><br>
+          <div class="col-xs-2" style="background-color:red;"><div align=center>Name</div></div>
+          <div class="col-xs-2" style="background-color:lime;"><div align=center>Last_Name</div></div>
+          <div class="col-xs-4" style="background-color:gold;"><div align=center>Bully</div></div>
+          <div class="col-xs-2" style="background-color:lime;"><div align=center>User_id</div></div>
+          <div class="col-xs-2" style="background-color:lime;"><div align=center>Avatar</div></div>
+        </div>
+
+          <div class="row"><br><br>
+            <div class="col-xs-2" style="background-color:lavender;"><div align=center><%= f.text_field :name %></div></div>
+            <div class="col-xs-2" style="background-color:lavender;"><div align=center><%= f.text_field :last_name %></div></div>
+            <div class="col-xs-4" style="background-color:lavender;"><div align=center><%= f.text_field :bullyp %></div></div>
+            <div class="col-xs-2" style="background-color:lavender;"><div align=center><%= f.text_field :user_id %></div></div>
+            <div class="col-xs-2" style="background-color:lavender;"><div align=center><%= f.file_field :avatar %></div></div>
+         </div>
+        </div>
+        <br><br><br><br>
+
+
+    <br><br><br>
+      <div class="actions" style="color:navy;"><div align='center'>
+        <%=   f.submit   %>
+      </div></div>
+      <% end %>

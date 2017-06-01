@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @profile.name
+%p
+  %b Last name:
+  = @profile.last_name
+%p
+  %b Bullyp:
+  = @profile.bullyp
+%p
+  %b User:
+  = @profile.user_id
+
+
+%h3
+= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'

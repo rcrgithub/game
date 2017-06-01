@@ -1,0 +1,13 @@
+<!-- <%= csrf_meta_tags %> -->
+<div align='center', style="color:green;"><h1>Pagina de Inicio</h1></div>
+<br><br><br>
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  <div align='center', style="color:gold;"><h3>Logged in as <strong><%= current_user.email %></strong></h3></div><br><br>
+  <div align='center', style="color:red;"><h3><%= button_to 'Complete el profile', new_profile_path, :class => 'navbar-link', method: :get %> <br><br>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h3></div>
+<% else %>
+  <div align='center', style="color:red;"><h3><%= button_to "Registration", new_user_registration_path, :class => 'navbar-link', method: :get  %></h3></div><br><br>
+  <div align='center', style="color:blue;"><h3><%= button_to "Login", new_user_session_path, :class => 'navbar-link', method: :get  %></h3></div><br><br>
+<% end %>
+</p>

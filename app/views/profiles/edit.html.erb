@@ -1,0 +1,17 @@
+<!-- %h1 Editing profile
+
+= render 'form'
+
+= link_to 'Show', @profile
+\|
+= link_to 'Back', profiles_path -->
+
+
+
+
+<h3>Editing Profile</h3>
+
+<%= render 'form', profile: @profile %>
+
+<div align=center><%= button_to '    Show    ', @profile, style: "background: green", method: :get %></div><br>
+<div align=center><%= button_to '    Back    ', profiles_path, style: "background: gold", method: :get %></div>
