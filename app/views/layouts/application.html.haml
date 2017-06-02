@@ -1,0 +1,32 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Game
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    - unless flash.empty?
+      :javascript
+        <haml_silent>               flash.each do |f| 
+        </haml_silent><haml_block><haml_silent>    	       type = f[0].to_s.gsub(&#39;alert&#39;, &#39;error&#39;).gsub(&#39;notice&#39;, &#39;info&#39;) 
+        </haml_silent>    	     	 toastr['#{type}']('#{f[1]}');
+        </haml_block>
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
+    = yield
+  %ul.nav
+    / <li class="active"><a href="/profiles">Profiles</a></li>
+  /
+    <p class="navbar-text pull-right">
+    <haml_silent>   if user_signed_in?
+    </haml_silent><haml_block>    <div align=center, style="color:gold;"><h2>Logged in as <strong><haml_loud> current_user.email </haml_loud></strong></h2></div><br><br>
+    <div align=center, style="color:red;"><h2><haml_loud> button_to &#39;Complete el profile&#39;, new_profile_path, :class =&gt; &#39;navbar-link&#39;, method: :get </haml_loud> <br><br>
+    <haml_loud> button_to &quot;Logout&quot;, destroy_user_session_path, method: :delete, :class =&gt; &#39;navbar-link&#39;  </haml_loud></h2></div>
+    </haml_block><haml_silent>   else
+    </haml_silent><haml_block>    <haml_loud> link_to &quot;Registration&quot;, new_user_registration_path, :class =&gt; &#39;navbar-link&#39;  </haml_loud> |
+    <haml_loud> link_to &quot;Login&quot;, new_user_session_path, :class =&gt; &#39;navbar-link&#39;  </haml_loud>
+    </haml_block></p>

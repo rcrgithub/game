@@ -1,0 +1,41 @@
+%body
+  = csrf_meta_tags
+  %h1 User Profiles
+  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+  %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+  %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  .container-fluid
+    .row
+      .col-xs-2{:style => "background-color:red;"} ID
+      .col-xs-1{:style => "background-color:lime;"} Name
+      .col-xs-1{:style => "background-color:gold;"} Last_Name
+      .col-xs-5{:style => "background-color:lime;"} Bully_Phrase
+      .col-xs-1{:style => "background-color:gold;"} User_id
+      .col-xs-1{:style => "background-color:gold;"} Avatar
+      .col-xs-1{:style => "background-color:gold;"} Opcion
+    - @profiles.order(:id).each do |profile|
+      .row
+        .col-xs-2{:style => "background-color:lavender;"}= profile.id
+        .col-xs-1{:style => "background-color:lavender;"}= profile.name
+        .col-xs-1{:style => "background-color:lavender;"}= profile.last_name
+        .col-xs-5{:style => "background-color:lavender;"}= profile.bullyp
+        .col-xs-1{:style => "background-color:lavender;"}= profile.user_id
+        .col-xs-1
+          .round-image-50= image_tag(profile.avatar.url(:thumb))
+        .col-xs-1{:style => "background-color:lavender;"}
+          .dropdown
+            %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+              %span{:style => "color:darkorange"} Elija Opcion
+            .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+              %a.dropdown-item{":get" => "", :href => "/profiles/#{profile.id}"}
+                %span{:style => "color:green"} Show
+              %a.dropdown-item{":get" => "", :href => "/profiles/#{profile.id}/edit", "method:" => ""}
+                %span{:style => "color:blue"} Edit
+              %a.dropdown-item{":delete" => "", "confirm:" => "", "data:" => "", :href => "/profiles/#{profile.id}", "method:" => "", :sure => "", :you => ""}
+                %span{:style => "color:red"} Destroy
+  %br/
+  %br/
+  %div{:align => "center"}= button_to '  New User Profile  ', new_profile_path, style: "background: coral", method: :get
+  %br/
+  

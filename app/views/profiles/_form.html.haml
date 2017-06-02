@@ -1,0 +1,54 @@
+%body
+  = form_for @profile do |f|
+    - if @profile.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@profile.errors.count, "error")
+          prohibited
+          this profile from being saved:
+        %ul
+          - @profile.errors.full_messages.each do |msg|
+            %li= msg
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+    %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+    %br/
+    %br/
+    .container-fluid
+      .row
+        %br/
+        %br/
+        .col-xs-2{:style => "background-color:red;"}
+          %div{:align => "center"} Name
+        .col-xs-2{:style => "background-color:lime;"}
+          %div{:align => "center"} Last_Name
+        .col-xs-4{:style => "background-color:gold;"}
+          %div{:align => "center"} Bully
+        .col-xs-2{:style => "background-color:lime;"}
+          %div{:align => "center"} User_id
+        .col-xs-2{:style => "background-color:lime;"}
+          %div{:align => "center"} Avatar
+      .row
+        %br/
+        %br/
+        .col-xs-2{:style => "background-color:lavender;"}
+          %div{:align => "center"}= f.text_field :name
+        .col-xs-2{:style => "background-color:lavender;"}
+          %div{:align => "center"}= f.text_field :last_name
+        .col-xs-4{:style => "background-color:lavender;"}
+          %div{:align => "center"}= f.text_field :bullyp
+        .col-xs-2{:style => "background-color:lavender;"}
+          %div{:align => "center"}= f.text_field :user_id
+        .col-xs-2{:style => "background-color:lavender;"}
+          %div{:align => "center"}= f.file_field :avatar
+    %br/
+    %br/
+    %br/
+    %br/
+    %br/
+    %br/
+    %br/
+    .actions{:style => "color:navy;"}
+      %div{:align => "center"}
+        = f.submit

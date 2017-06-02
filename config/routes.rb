@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'wellcome/index'
+  # get 'wellcome/index'
 
   resources :profiles
   # get 'homs/index'
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: 'homs#index'
+  root to: 'profiles#new'
 end

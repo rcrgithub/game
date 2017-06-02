@@ -1,0 +1,44 @@
+<!-- %h1 New profile
+
+= render 'form'
+
+= link_to 'Back', profiles_path -->
+
+
+<h3>New Profile</h3>
+
+
+<%= csrf_meta_tags %>
+
+<%= render 'form', profile: @profile %>
+<br><br><br>
+<div align='center', color="red"><%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></h3></div>
+.container
+  .login
+  %h1.text-center User Profile
+  .row
+    .col-md-offset-3.col-xs-12.col-sm-6
+      .well.well-custom
+        = form_with model: @profile, local: true  do |f|
+          - if @profile.errors.any?
+            .alert.alert-danger
+              = pluralize(@profile.errors.count, "error")
+              prohibited this profile from being saved:
+              %ul
+                - @profile.errors.full_messages.each do |msg|
+                  %li= msg
+            .form-group
+              = f.text_area :bullyp, class: 'form-control', placeholder: 'Bully...', rows: '4'
+            .form-group
+              = f.text_field :name, autocomplete: "off", class: 'form-control'
+            .form-group.text-center
+              .pic
+                %span.head
+                  %span.mouth
+                %span.body
+                = f.file_field :avatar, class: 'form-control'
+            .text-center.form-group
+              = f.submit class: 'btn btn-primary' do
+                %span.glyphicon.glyphicon-sunglasses
+                Add profile
+                %span.glyphicon.glyphicon-sunglasses

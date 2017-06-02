@@ -16,8 +16,38 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    @user = current_user
+    # if @user.id = '1' then redirect_to :jugar
+    # else
     @profile = Profile.new
+    puts 'djkchkhdcklhsdlkchsdklhclksdjc lkjsd'
+    @profile.user_id = @user.id
+    puts @user.inspect
+    puts 'antes'
+    puts @profile.inspect
+    puts 'listo'
   end
+  # end
+
+  def jugar
+    def show
+      @user = current_user
+      cicle = true
+      @arr = []
+      primero = User.first.id
+      ultimo = User.last.id
+      i = primero
+      while cicle
+        usuario = User.find_by_id(i)
+        if i > ultimo
+          cicle = false
+        else
+          @arr << usuario unless usuario.nil?
+          i += 1
+        end
+     end
+   end
+     end
 
   # GET /profiles/1/edit
   def edit
@@ -28,7 +58,8 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-
+    puts 'antes de save'
+    puts @profile.inspect
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
@@ -71,6 +102,6 @@ class ProfilesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def profile_params
-    params.require(:profile).permit(:name, :last_name, :bullyp, :user_id, :avatar)
+    params.require(:profile).permit(:id, :name, :last_name, :bullyp, :user_id, :avatar)
   end
 end

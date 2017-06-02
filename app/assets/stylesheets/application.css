@@ -16,3 +16,22 @@
  *= require bootstrap/dist/css/bootstrap.css
  *= require toastr
 */
+
+
+@import "bootstrap/dist/css/bootstrap";
+@import "profiles";
+@import "users";
+*{
+  box-sizing: border-box;
+}
+ body{
+   margin: 0;
+   padding: 0;
+   background-color:#7CFBFF;
+   .login{
+     margin-top: 6em;
+   }
+ }
+textarea{
+  resize: none;
+}
