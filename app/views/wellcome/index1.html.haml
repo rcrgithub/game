@@ -1,0 +1,43 @@
+.row
+  .col-sm-3
+    .sidebar-nav
+      .navbar.navbar-default{:role => "navigation"}
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".sidebar-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %span.visible-xs.navbar-brand Sidebar menu
+        .navbar-collapse.collapse.sidebar-navbar-collapse
+          %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "#"} Menu Item 154545
+            %li
+              %a{:href => "#"} Menu Item 2
+            %li.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                Dropdown
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{:href => "#"} Action
+                %li
+                  %a{:href => "#"} Another action
+                %li
+                  %a{:href => "#"} Something else here
+                %li.divider
+                %li.dropdown-header Nav header
+                %li
+                  %a{:href => "#"} Separated link
+                %li
+                  %a{:href => "#"} One more separated link
+            %li
+              %a{:href => "#"} Menu Item 4
+            %li
+              %a{:href => "#"}
+                Reviews
+                %span.badge 1,118
+        / /.nav-collapse
+  .col-sm-9
+    Main content goes here

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get 'wellcome/index'
+  get 'wellcome/index'
 
   resources :profiles
   # get 'homs/index'

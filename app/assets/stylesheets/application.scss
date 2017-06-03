@@ -20,14 +20,15 @@
 
 @import "bootstrap/dist/css/bootstrap";
 @import "profiles";
-@import "users";
+
 *{
   box-sizing: border-box;
+  background-color: #7CFBFF;
 }
- body{
+body{
+  background-color: #7CFBFF;
    margin: 0;
    padding: 0;
-   background-color:#7CFBFF;
    .login{
      margin-top: 6em;
    }

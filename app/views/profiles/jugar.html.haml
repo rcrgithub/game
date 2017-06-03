@@ -1,0 +1,28 @@
+.container-fluid
+  .login
+    %h1.text-center
+    .row
+      .col-sm-offset-3.col-xs-12.col-sm-6
+        .well.well-custom
+          = form_with model: @profile, local: true do |form|
+            - if @profile.errors.any?
+              .alert.alert-danger
+                = pluralize(@profile.errors.count, "error")
+                prohibited this profile from being saved:
+                %ul
+                  - @profile.errors.full_messages.each do |message|
+                    %li= message
+            .form-group
+              = form.text_area :bullyp, class: 'form-control ', placeholder: 'Bullea...', rows: '4'
+            .form-group
+              %input{type: :text, name: 'profile[name]', class: 'form-control', placeholder: 'Name'}
+            .form-group
+              = form.number_field :user_id, class: 'form-control ', placeholder: 'user_id...'
+            .form-group.text-center
+              .pic
+                %span.head
+                  %span.mouth
+                %span.body1
+                = form.file_field :avatar, accept: 'image/png/jpg/jpeg'
+            .text-center.form-group
+              = form.submit class: 'btn btn-primary'

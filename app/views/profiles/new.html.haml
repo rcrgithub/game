@@ -1,4 +1,4 @@
-.container
+.container-fluid
   .login
     %h1.text-center
     .row
@@ -22,7 +22,7 @@
               .pic
                 %span.head
                   %span.mouth
-                %span.body
+                %span.body1
                 = form.file_field :avatar, accept: 'image/png/jpg/jpeg'
             .text-center.form-group
               = form.submit class: 'btn btn-primary'

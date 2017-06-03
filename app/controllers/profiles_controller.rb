@@ -17,37 +17,9 @@ class ProfilesController < ApplicationController
   # GET /profiles/new
   def new
     @user = current_user
-    # if @user.id = '1' then redirect_to :jugar
-    # else
     @profile = Profile.new
-    puts 'djkchkhdcklhsdlkchsdklhclksdjc lkjsd'
     @profile.user_id = @user.id
-    puts @user.inspect
-    puts 'antes'
-    puts @profile.inspect
-    puts 'listo'
-  end
-  # end
-
-  def jugar
-    def show
-      @user = current_user
-      cicle = true
-      @arr = []
-      primero = User.first.id
-      ultimo = User.last.id
-      i = primero
-      while cicle
-        usuario = User.find_by_id(i)
-        if i > ultimo
-          cicle = false
-        else
-          @arr << usuario unless usuario.nil?
-          i += 1
-        end
-     end
-   end
-     end
+    end
 
   # GET /profiles/1/edit
   def edit
@@ -75,7 +47,6 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1.json
   def update
     @profile = Profile.find(params[:id])
-
     if @profile.update(profile_params)
       redirect_to @profile
     else

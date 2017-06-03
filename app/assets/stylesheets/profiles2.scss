@@ -1,29 +1,7 @@
 // Place all the styles related to the Profiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.round-image-50 {
-    background-color: white;
-    border: 1px solid #d9d9d9;
-    border-radius: 25px;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    height: 50px;
-    width: 50px;
-    overflow: hidden;
-    text-align: center;
-    img { width: 100% }
-}
-
-*{
-  box-sizing: border-box;
-}
-.login {
-  margin: 0;
- }
-
 .pic {
-    background-color: white;
-    visibility: visible;
     border: 2px solid;
     position: relative;
     width: 200px;
@@ -46,8 +24,6 @@
       }
   }
   .head {
-    background-color: white;
-    z-index: 12;
     width: 75px;
     height: 71px;
     border: 2px solid;
@@ -57,7 +33,6 @@
     margin-top: 10px;
     position: relative;
     .mouth {
-      background-color: white;
       width: 50px;
       height: 20px;
       display: block;
@@ -68,10 +43,7 @@
       left: 10px;
     }
   }
-  .body1 {
-    position:relative;
-    background-color: white;
-    z-index: 12;
+  .body {
     width: 150px;
     height: 80px;
     display: block;
@@ -81,7 +53,4 @@
     margin-top: 10px;
   }
 }
-.well-custom{
-  margin-top: 50px;
-  background-color: white;
-}
+.well-custom{}
