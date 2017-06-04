@@ -66,21 +66,15 @@
           /%button.btn.btn-default.btn-circle.btn-xl{:type => "button"}
           /.imagen
           /%img{:src => "/home/ricardo/code/game/app/assets/images/ricardo_capuz.png", class: 'imagen'}
-      .circle
+      //.circle
+      /.imagen1= button_to("icon-question.png", :size => '100x100')
       /.imagen1= image_tag(@profiles.first.avatar.url(:thumb))
-      .imagen1= image_tag('icon-question.png', :size => '100x100')
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .mediacircle
+      /%button.btn.btn-default.btn-circle.btn-xl{:type => "button"}
+      - @profiles.order(:id).each do |profile|
+        .imagen1
+          -# = profile.name
+          //%button.btn-default.btn-circle{:src => "wellcome_index_path", :type => "button"}
+          //= image_tag("icon-question.png", :size => '100x100', z-index:)
+          %button{:class => "botonimagen"}
+        .imagen
+          = profile.name
