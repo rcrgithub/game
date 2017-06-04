@@ -67,7 +67,8 @@
           /.imagen
           /%img{:src => "/home/ricardo/code/game/app/assets/images/ricardo_capuz.png", class: 'imagen'}
       .circle
-      .imagen1= image_tag(@profiles.first.avatar.url(:thumb))
+      /.imagen1= image_tag(@profiles.first.avatar.url(:thumb))
+      .imagen1= image_tag('icon-question.png', :size => '100x100')
       .circle
       .circle
       .circle
