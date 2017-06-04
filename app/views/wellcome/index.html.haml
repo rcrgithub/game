@@ -2,6 +2,7 @@
 %body
   = csrf_meta_tags
   %h1 User Profiles
+  %script{:src => "funciones.js", :type => "text/javascript"}
   %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
   %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
@@ -55,26 +56,17 @@
             / /.nav-collapse
 
     .col-sm-9
-      %h2
-        -  puts @variable
-        -  puts "pase mas trabajo"
-        - puts  @profiles[@variable.to_i].bullyp
-        %h1
-          = @profiles[@variable.to_i].bullyp
-          /.circulo
-          /.circle
-          /%button.btn.btn-default.btn-circle.btn-xl{:type => "button"}
-          /.imagen
-          /%img{:src => "/home/ricardo/code/game/app/assets/images/ricardo_capuz.png", class: 'imagen'}
-      //.circle
-      /.imagen1= button_to("icon-question.png", :size => '100x100')
-      /.imagen1= image_tag(@profiles.first.avatar.url(:thumb))
-      /%button.btn.btn-default.btn-circle.btn-xl{:type => "button"}
+      -# %h2
+      -#   -  puts @variable
+      -#   -  puts "pase mas trabajo"
+      -#   - puts  @profiles[@variable.to_i].bullyp
+      %h1
+        = @profiles[@variable.to_i].bullyp
       - @profiles.order(:id).each do |profile|
-        .imagen1
-          -# = profile.name
-          //%button.btn-default.btn-circle{:src => "wellcome_index_path", :type => "button"}
-          //= image_tag("icon-question.png", :size => '100x100', z-index:)
-          %button{:class => "botonimagen"}
-        .imagen
-          = profile.name
+        .imagen2
+          .imagen1
+            %button{:class => "botonimagen"}
+          .imagen3
+            %h3
+              = profile.name
+              .rotate
