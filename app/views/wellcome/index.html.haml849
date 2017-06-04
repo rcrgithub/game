@@ -55,31 +55,5 @@
             / /.nav-collapse
 
     .col-sm-9
-      %h2
-        -  puts @variable
-        -  puts "pase mas trabajo"
-        - puts  @profiles[@variable.to_i].bullyp
-        %h1
-          = @profiles[@variable.to_i].bullyp
-          /.circulo
-          /.circle
-          /%button.btn.btn-default.btn-circle.btn-xl{:type => "button"}
-          /.imagen
-          /%img{:src => "/home/ricardo/code/game/app/assets/images/ricardo_capuz.png", class: 'imagen'}
       .circle
       .imagen1= image_tag(@profiles.first.avatar.url(:thumb))
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .circle
-      .mediacircle

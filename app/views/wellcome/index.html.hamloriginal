@@ -1,0 +1,56 @@
+.row
+  .col-sm-3
+    .sidebar-nav
+      .navbar.navbar-default{:role => "navigation"}
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".sidebar-navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %span.visible-xs.navbar-brand Sidebar menu
+        .navbar-collapse.collapse.sidebar-navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'bully1', wellcome_index_path(:key => '0')
+            %li
+              %a{:href => "#" } Bullying               2
+            %li
+              %a{:href => "#"} Bullying               3
+            %li
+              %a{:href => "#"} Bullying               4
+            %li
+              %a{:href => "#"} Bullying  -----------> 5
+            %li
+              %a{:href => "#"} Bullying               6
+            %li
+              %a{:href => "#"} Bullying               7
+            %li
+              %a{:href => "#"} Bullying               7
+            %li
+              %a{:href => "#"} Bullying  -----------> 8
+            %li
+              %a{:href => "#"} Bullying               9
+            %li
+              %a{:href => "#"} Bullying               10
+            %li
+              %a{:href => "#"} Bullying               11
+            %li
+              %a{:href => "#"} Bullying  -----------> 12
+            %li
+              %a{:href => "#"} Bullying               13
+            %li
+              %a{:href => "#"} Bullying               14
+            %li
+              %a{:href => "#"} Bullying               15
+
+        / /.nav-collapse
+  .col-sm-9
+    %h2
+      -  puts @variable
+      -  puts "pase mas trabajo"
+      - puts  @profiles[@variable.to_i].bullyp
+      %h1
+        = @profiles[@variable.to_i].bullyp
+      -# -  a = @Profiles.find(@variable)
+      -# - puts a.bullyp
