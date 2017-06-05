@@ -1,12 +1,15 @@
 
 %body
   = csrf_meta_tags
-  %h1 User Profiles
-  %script{:src => "funciones.js", :type => "text/javascript"}
-  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-  %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}/
+  -# %script(src="./funciones.js")
+  -# %script(src="./funciones.js", type="text/javascript")
+  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+  %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :rel => "stylesheet"}
   %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
   %script{:src => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"}
+  -# %script{:src => "../javascripts/cable.js", :type => "text/javascript"}
+
+
   .row
     .col-sm-3
       .sidebar-nav
@@ -23,11 +26,11 @@
               %li
                 = link_to 'bullying                      1', wellcome_index_path(:key => '0')
               %li
-                %a{:href => "#" } Bullying               2
+                = link_to 'bullying                      2', wellcome_index_path(:key => '1')
               %li
-                %a{:href => "#"} Bullying               3
+                = link_to 'bullying                      3', wellcome_index_path(:key => '2')
               %li
-                %a{:href => "#"} Bullying               4
+                = link_to 'bullying                      4', wellcome_index_path(:key => '3')
               %li
                 %a{:href => "#"} Bullying  -----------> 5
               %li
@@ -55,7 +58,7 @@
 
             / /.nav-collapse
 
-    .col-sm-9
+    .col-xs-9
       -# %h2
       -#   -  puts @variable
       -#   -  puts "pase mas trabajo"
@@ -65,8 +68,17 @@
       - @profiles.order(:id).each do |profile|
         .imagen2
           .imagen1
-            %button{:class => "botonimagen"}
+            -# %button{:id => "pruebalol", :class => "botonimagen", :onClick => "hola()"}
+            -# - link_to '#', :class => "botonimagen", :onClick => "hola()"
+            %button{:id => profile.id, :class => "botonimagen", :onClick => "hola(#{profile.id});"}
           .imagen3
             %h3
               = profile.name
-              .rotate
+-# .top
+-# .right
+-# .bottom
+-# .left
+-# .rotate.top
+-# .rotate.right
+-# .rotate.bottom
+-# .rotate.left

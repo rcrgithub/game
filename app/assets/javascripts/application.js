@@ -10,8 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
-//= require turbolinks
-//= require_tree .
-//= require bootstrap/dist/js/bootstrap
-//= require toastr
+// = require rails-ujs
+// = require turbolinks
+// = require_tree .
+// = require bootstrap/dist/js/bootstrap
+// = require toastr
+
+function hola(id) {
+  document.getElementById(id).className = 'csslol';
+}
