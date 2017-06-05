@@ -11,7 +11,7 @@
 
 
   .row
-    .col-sm-3
+    .col-sm-2
       .sidebar-nav
         .navbar.navbar-default{:role => "navigation"}
           .navbar-header
@@ -23,59 +23,114 @@
             %span.visible-xs.navbar-brand Sidebar menu
           .navbar-collapse.collapse.sidebar-navbar-collapse
             %ul.nav.navbar-nav
-              %li
-                = link_to 'bullying                      1', wellcome_index_path(:key => '0')
-              %li
-                = link_to 'bullying                      2', wellcome_index_path(:key => '1')
-              %li
-                = link_to 'bullying                      3', wellcome_index_path(:key => '2')
-              %li
-                = link_to 'bullying                      4', wellcome_index_path(:key => '3')
-              %li
-                %a{:href => "#"} Bullying  -----------> 5
-              %li
-                %a{:href => "#"} Bullying               6
-              %li
-                %a{:href => "#"} Bullying               7
-              %li
-                %a{:href => "#"} Bullying               7
-              %li
-                %a{:href => "#"} Bullying  -----------> 8
-              %li
-                %a{:href => "#"} Bullying               9
-              %li
-                %a{:href => "#"} Bullying               10
-              %li
-                %a{:href => "#"} Bullying               11
-              %li
-                %a{:href => "#"} Bullying  -----------> 12
-              %li
-                %a{:href => "#"} Bullying               13
-              %li
-                %a{:href => "#"} Bullying               14
-              %li
-                %a{:href => "#"} Bullying               15
+              %h4
+                %li
+                .glyphicon.glyphicon-thumbs-up
+                  = link_to 'bullying                      0', wellcome_index_path(:key => '0')
+                %br/
+                %li
+                .glyphicon.glyphicon-thumbs-up
+                  = link_to 'bullying                      1', wellcome_index_path(:key => '1')
+                %br/
+                %li
+                .glyphicon.glyphicon-thums-up
+                  = link_to 'bullying                      2', wellcome_index_path(:key => '2')
+                %br/
+                %li
+                  = link_to 'bullying                      3', wellcome_index_path(:key => '3')
+                %br/
+                %li
+                  = link_to 'bullying                      4', wellcome_index_path(:key => '4')
+                %br/
+                %li
+                  = link_to 'bullying                      5', wellcome_index_path(:key => '5')
+                %br/
+                %li
+                  = link_to 'bullying                      6', wellcome_index_path(:key => '6')
+                %br/
+                %li
+                  = link_to 'bullying                      7', wellcome_index_path(:key => '7')
+                %br/
+                %li
+                  = link_to 'bullying                      8', wellcome_index_path(:key => '8')
+                %br/
+                %li
+                  = link_to 'bullying                      9', wellcome_index_path(:key => '9')
+                %br/
+                %li
+                  = link_to 'bullying                      10', wellcome_index_path(:key => '10')
+                %br/
+                %li
+                  = link_to 'bullying                      11', wellcome_index_path(:key => '11')
+                %br/
+                %li
+                  = link_to 'bullying                      12', wellcome_index_path(:key => '12')
+                %br/
+                %li
+                  = link_to 'bullying                      13', wellcome_index_path(:key => '13')
+                %br/
+
 
             / /.nav-collapse
 
-    .col-xs-9
-      -# %h2
-      -#   -  puts @variable
-      -#   -  puts "pase mas trabajo"
-      -#   - puts  @profiles[@variable.to_i].bullyp
-      %h1
-        = @profiles[@variable.to_i].bullyp
+    .col-xs-10
+      %h2
+        %h1
+          = @profiles[@variable.to_i].bullyp
+      - @var = 0
+      - @var = @var.to_i
+      - @variable = @variable.to_i
+      - @variable1 = @variable1.to_i
       - @profiles.order(:id).each do |profile|
-        .imagen2
-          .imagen1
-            -# %button{:id => "pruebalol", :class => "botonimagen", :onClick => "hola()"}
-            -# - link_to '#', :class => "botonimagen", :onClick => "hola()"
-            %button{:id => profile.id, :class => "botonimagen", :onClick => "hola(#{profile.id});"}
-          .imagen3
-            %h3
-              = profile.name
--# .top
--# .right
+        - puts "var=========== #{@var} var   #{@variable} var1 #{@variable1}"
+        -  if (@variable == @variable1 && (@variable1 == @var ))  then
+          - puts "ES EL ELSE #{@var} var   #{@variable} var1 #{@variable1}"
+          .imagen2
+            .imagen1
+              -# %button{:id => "pruebalol", :class => "botonimagen", :onClick => "hola()"}
+              -# - link_to '#', :class => "botonimagen", :onClick => "hola()"
+              %a.btn.botonimagen1{:href => wellcome_index_path(:key1 => @var.to_i, :key => @variable)}
+            .imagen3
+              %h3
+                = profile.name
+        -  if (@variable == @variable1 && (@variable1 != @var ))  then
+          - puts "ES EL ELSE #{@var} var   #{@variable} var1 #{@variable1}"
+          .imagen2
+            .imagen1
+              -# %button{:id => "pruebalol", :class => "botonimagen", :onClick => "hola()"}
+              -# - link_to '#', :class => "botonimagen", :onClick => "hola()"
+              %a.btn.botonimagen{:href => wellcome_index_path(:key1 => @var.to_i, :key => @variable)}
+            .imagen3
+              %h3
+                = profile.name
+        -  if (@variable != @variable1 && (@variable1 == @var ))  then
+          - puts "ES EL IF #{@var} var   #{@variable} var1 #{@variable1}"
+          .imagen2
+            .imagen1
+              -# %button{:id => "pruebalol", :class => "botonimagen", :onClick => "hola()"}
+              -# - link_to '#', :class => "botonimagen", :onClick => "hola()"
+              -# %button{:id => profile.id, :class => "botonimagen", :onClick => "hola(#{profile.id});"}
+              -# %a.btn.botonimagen{:href => wellcome_index_path(:key => '13')}
+              %a.btn.botonimagen2{:href => wellcome_index_path(:key1 => @var.to_i, :key => @variable)}
+                -#   = link_to '            ', wellcome_index_path(:key => '1000'), :class => "botonimagen"
+            .imagen3
+              %h3
+                = profile.name
+        -  if (@variable != @variable1 && (@variable1 != @var ))  then
+          - puts "ES EL IF #{@var} var   #{@variable} var1 #{@variable1}"
+          .imagen2
+            .imagen1
+              -# %button{:id => "pruebalol", :class => "botonimagen", :onClick => "hola()"}
+              -# - link_to '#', :class => "botonimagen", :onClick => "hola()"
+              -# %button{:id => profile.id, :class => "botonimagen", :onClick => "hola(#{profile.id});"}
+              -# %a.btn.botonimagen{:href => wellcome_index_path(:key => '13')}
+              %a.btn.botonimagen{:href => wellcome_index_path(:key1 => @var.to_i, :key => @variable)}
+                -#   = link_to '            ', wellcome_index_path(:key => '1000'), :class => "botonimagen"
+            .imagen3
+              %h3
+                = profile.name
+        - @var = @var + 1
+  -# .right
 -# .bottom
 -# .left
 -# .rotate.top
